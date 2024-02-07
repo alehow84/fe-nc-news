@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { getSingleArticle } from "../Api";
 import LoadingComponent from "./LoadingComponent";
 import ErrorComponent from "./ErrorComponent";
+import Comments from "./Comments";
 import * as React from 'react';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
@@ -16,6 +17,7 @@ export default function SingleArticle({setHeader, singleArticle}){
     const [article, SetArticle] = useState([])
     const [isLoading, setIsLoading] = useState(true)
     const [isError, setIsError] = useState(false)
+    const [showComments, setShowComments] = useState(false)
     const {article_id} = useParams()
 
     useEffect(()=>{
@@ -29,10 +31,14 @@ export default function SingleArticle({setHeader, singleArticle}){
         })
     },[])
 
+    function HandleCommentClick() {
+      setShowComments(!showComments)
+    }
+
     if (isLoading) (<LoadingComponent/>)
     if (!isError) (<ErrorComponent/>)
-   
     return (
+      <>
         <Card sx={{ maxWidth: 800 }}>
         <CardMedia
           sx={{ height: 300 }}
@@ -54,10 +60,13 @@ export default function SingleArticle({setHeader, singleArticle}){
           </Typography>
         </CardContent>
         <CardActions>
-          <Button size="small">Comments: {article.comment_count}</Button>
+          <Button onClick={HandleCommentClick} size="small">Comments: {article.comment_count}</Button>
           <Button size="small">Votes: {article.votes}</Button>
         </CardActions>
       </Card>
+      {showComments === false ? null : (<Comments article_id={article_id}/>)}
+
+      </>
     )
 
 }

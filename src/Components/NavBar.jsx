@@ -12,8 +12,6 @@ const navigate = useNavigate()
 useEffect(()=>{
     getSingleArticle(searchArticle)
     .then((response)=>{
-        console.log(response, 'response in useEffect')
-        //setSingleArticle to the response - this isn't working as expected as when i access singleArticle in SingleArticle component, it returns the whole object
         setSingleArticle(response)
     })
 
