@@ -62,11 +62,11 @@ export default function SingleArticle({singleArticle}){
 
     if (isLoading) (<LoadingComponent/>)
     if (!isError) (<ErrorComponent/>)
-    
+
     return (
       <>
       <div className="articles-card">
-        <Card sx={{ maxWidth: 800 }}>
+        <Card sx={{ maxWidth: 1000 }}>
         <CardMedia
           sx={{ height: 300 }}
           image={article.article_img_url}

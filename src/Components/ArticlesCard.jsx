@@ -40,7 +40,7 @@ export default function ArticlesCard({articles}){
         </Typography>
         </CardContent>
         <CardActions>
-        <Button size="small">Learn More</Button>
+        <Button size="small">Click to read more...</Button>
       </CardActions>
       </Card>
       </Link>

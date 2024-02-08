@@ -1,15 +1,8 @@
 #root {
-  max-width: 1280px;
+  /* max-width: 1280px; */
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
-}
-
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
 }
 
 .card {
@@ -17,7 +10,8 @@
 }
 
 #header {
-  background: rgba(228, 132, 7, 0.813);
+  /* background: rgba(228, 132, 7, 0.813); */
+  background: linear-gradient(112.4deg, rgb(169, 28, 115) 21.6%, rgb(219, 112, 54) 92.2%);
   color: white;
   padding: 30px;
   border: 2px solid rgba(248, 123, 6, 0.448);
@@ -44,10 +38,11 @@ footer {
   border-radius: 20px;
 }
 .styled-box {
-  max-width:750px ;
+  max-width:700px ;
   margin: 20px;
+  padding:10px;
   position: relative;
-  left:-10px;
+  right: -20px;
   text-align:center;
   color: black;
   background: rgba(104, 205, 253, 0.1);
@@ -57,10 +52,16 @@ footer {
 }
 
 .articles-card{
+  max-width: 800px;
   margin: 30px;
   box-shadow: 19px 21px 34px 3px rgba(0, 0, 0, 0.2);
 }
 
 .alternate-content {
   margin: 50px;
+}
+nav {
+  padding: 30px 10px 200px 10px;
+  margin-top: 30px;
+  background: rgba(74, 144, 226, 0.9);
 }
