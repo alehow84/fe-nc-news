@@ -62,6 +62,7 @@ export default function SingleArticle({singleArticle}){
 
     if (isLoading) (<LoadingComponent/>)
     if (!isError) (<ErrorComponent/>)
+    
     return (
       <>
       <div className="articles-card">

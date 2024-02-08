@@ -16,8 +16,15 @@
   padding: 2em;
 }
 
-.read-the-docs {
-  color: #888;
+#header {
+  background: rgba(228, 132, 7, 0.813);
+  color: white;
+  padding: 30px;
+  border: 2px solid rgba(248, 123, 6, 0.448);
+  border-radius: 31px;
+}
+.header-text {
+  text-shadow: 2px 2px 5px rgb(11, 11, 11);
 }
 
 ul {
