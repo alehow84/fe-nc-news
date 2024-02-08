@@ -20,6 +20,7 @@ export default function SingleArticle({singleArticle}){
     const [isLoading, setIsLoading] = useState(true)
     const [isError, setIsError] = useState(false)
     const [showComments, setShowComments] = useState(false)
+    const [comments, setComments] = useState([])
     const {article_id} = useParams()
 
     useEffect(()=>{
@@ -68,7 +69,7 @@ export default function SingleArticle({singleArticle}){
         </CardActions>
       </Card>
       </div>
-      {showComments === false ? null : (<Comments article_id={article_id}/>)}
+      {showComments === false ? null : (<Comments comments={comments} setComments={setComments} article_id={article_id}/>)}
 
       </>
     )

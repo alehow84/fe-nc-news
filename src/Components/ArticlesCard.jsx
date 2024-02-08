@@ -14,8 +14,8 @@ export default function ArticlesCard({articles}){
         <>
         {articles.map((article)=>{
             return (
-      <div className="articles-card">
-      <Link key={article.article_id} to={`/articles/${article.article_id}`}>
+      <div key={article.article_id} className="articles-card">
+      <Link  to={`/articles/${article.article_id}`}>
       <Card sx={{ maxWidth: 800 }}>
       <CardMedia
         sx={{ height: 200 }}

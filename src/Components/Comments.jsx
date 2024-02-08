@@ -2,32 +2,30 @@ import { useEffect, useState } from "react"
 import { getArticleComments } from "../Api"
 import CommentCard from "./CommentCard"
 import StyledBox from "./StyledBox"
-export default function Comments({article_id}){
-console.log(article_id, "article_id in Comments")
-const [comments, setComments] = useState(null)
+import LoadingComponent from "./LoadingComponent"
 
-//this sets the layout of the comments section, makes the call to the api to get comments
-//
+
+export default function Comments({article_id, comments, setComments}){
+//is loading and error state here
 
 useEffect(()=>{
     getArticleComments(article_id)
     .then((commentsResponse)=>{
-        console.log(commentsResponse, "response in comments component")
-        //setComments(commentsResponse)
+        setComments(commentsResponse)  
     })
 },[])
+ 
 
-    
-    return (
-       
+     return (
         <ul id="comments-list">
-            {/* map over each comment object and return a comment card/div */}
-        <li>
-            <StyledBox>
-                <CommentCard/>
-            </StyledBox>
-        </li>
-        </ul>
-       
+            {comments.map((comment)=>{
+                return (
+                <li key={comment.comment_id}>
+                <StyledBox>
+                    <CommentCard comment={comment}/>
+                </StyledBox>
+            </li> )
+            })}
+        </ul>  
     )
 }

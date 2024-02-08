@@ -35,9 +35,10 @@ footer {
   border-radius: 20px;
 }
 .styled-box {
+  max-width:750px ;
   margin: 20px;
   position: relative;
-  left:-15px;
+  left:-18px;
   text-align:center;
   color: black;
   background: rgba(104, 205, 253, 0.1);

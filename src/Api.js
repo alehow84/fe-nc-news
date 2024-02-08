@@ -21,13 +21,10 @@ export const getSingleArticle = (article_id) => {
 }
 
 export const getArticleComments = (article_id) => {
-    //request not working, though is injecting the article id correctly 
+
     return api
-    .get(`/api/articles/${article_id}/commments`)
+    .get(`/api/articles/${article_id}/comments`)
     .then((response)=>{
-        console.log(response.data, "response.data in getArticleComments")
-    })
-    .catch((error)=>{
-        console.log(error, "error")
+        return response.data
     })
 }
