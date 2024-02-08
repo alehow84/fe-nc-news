@@ -5,14 +5,6 @@
   text-align: center;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
 
 @media (prefers-reduced-motion: no-preference) {
   a:nth-of-type(2) .logo {
@@ -41,4 +33,20 @@ footer {
   padding:10px;
   border: 4px outset #f65f0d;
   border-radius: 20px;
+}
+.styled-box {
+  margin: 20px;
+  position: relative;
+  left:-15px;
+  text-align:center;
+  color: black;
+  background: rgba(104, 205, 253, 0.1);
+  border: 1px solid #5d91f1;
+  border-radius: 20px;
+  box-shadow: 20px 15px 32px rgba(0, 0, 0, 0.2);
+}
+
+.articles-card{
+  margin: 30px;
+  box-shadow: 19px 21px 34px 3px rgba(0, 0, 0, 0.2);
 }

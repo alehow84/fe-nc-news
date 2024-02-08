@@ -13,7 +13,9 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
 
-export default function SingleArticle({setHeader, singleArticle}){
+
+export default function SingleArticle({singleArticle}){
+  //im not using singleArticle
     const [article, SetArticle] = useState([])
     const [isLoading, setIsLoading] = useState(true)
     const [isError, setIsError] = useState(false)
@@ -39,6 +41,7 @@ export default function SingleArticle({setHeader, singleArticle}){
     if (!isError) (<ErrorComponent/>)
     return (
       <>
+      <div className="articles-card">
         <Card sx={{ maxWidth: 800 }}>
         <CardMedia
           sx={{ height: 300 }}
@@ -64,6 +67,7 @@ export default function SingleArticle({setHeader, singleArticle}){
           <Button size="small">Votes: {article.votes}</Button>
         </CardActions>
       </Card>
+      </div>
       {showComments === false ? null : (<Comments article_id={article_id}/>)}
 
       </>

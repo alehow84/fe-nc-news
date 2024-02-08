@@ -14,14 +14,15 @@ export default function ArticlesCard({articles}){
         <>
         {articles.map((article)=>{
             return (
-              <Link key={article.article_id} to={`/articles/${article.article_id}`}>
-            <Card sx={{ maxWidth: 800 }}>
+      <div className="articles-card">
+      <Link key={article.article_id} to={`/articles/${article.article_id}`}>
+      <Card sx={{ maxWidth: 800 }}>
       <CardMedia
         sx={{ height: 200 }}
         image={article.article_img_url}
         title={article.topic}
       />
-      <CardContent>
+        <CardContent>
         <Typography gutterBottom variant="h5" component="div">
           {article.title}
         </Typography>
@@ -29,17 +30,21 @@ export default function ArticlesCard({articles}){
           Author: {article.author}
         </Typography>
         <Typography variant="body2" color="text.secondary">
+          Article ID: {article.article_id}
+        </Typography>
+        <Typography variant="body2" color="text.secondary">
          Written: {article.created_at.slice(0,10)}
         </Typography>
         <Typography variant="body2" color="text.secondary">
          Votes: {article.votes}
         </Typography>
-      </CardContent>
-      <CardActions>
+        </CardContent>
+        <CardActions>
         <Button size="small">Learn More</Button>
       </CardActions>
-    </Card>
-          </Link>
+      </Card>
+      </Link>
+      </div>
             )
         })  
        }
