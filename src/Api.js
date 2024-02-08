@@ -1,18 +1,30 @@
 import axios from "axios";
 
+const api = axios.create({
+    baseURL: "https://nc-news-dcnn.onrender.com",
+  });
+
 export const getAllArticles = () => {
-    return axios
-    .get(`https://nc-news-dcnn.onrender.com/api/articles`)
+    return api
+    .get(`/api/articles`)
     .then((response)=>{
         return response.data
     })
 }   
 
 export const getSingleArticle = (article_id) => {
-    return axios
-    .get(`https://nc-news-dcnn.onrender.com/api/articles/${article_id}`)
+    return api
+    .get(`/api/articles/${article_id}`)
     .then((response)=>{
-        console.log(response.data, "response.data in singlearticle request")
+        return response.data
+    })
+}
+
+export const getArticleComments = (article_id) => {
+
+    return api
+    .get(`/api/articles/${article_id}/comments`)
+    .then((response)=>{
         return response.data
     })
 }
