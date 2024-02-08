@@ -20,8 +20,8 @@ export default function ArticlesHomepage({setSingleArticle}){
         })
     }, [])
     
-    if(isLoading) (<LoadingComponent/>)
-    if(!Error) (<ErrorComponent/>)
+    if(isLoading) return (<LoadingComponent/>)
+    if(!Error) return (<ErrorComponent/>)
     return (
     <ArticlesCard articles={articles} setSingleArticle={setSingleArticle}/>
     )

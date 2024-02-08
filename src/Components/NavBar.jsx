@@ -17,9 +17,7 @@ useEffect(()=>{
 
 }, [searchArticle])
 
-//function to hangle change
 function handleChange(event){
-console.log(event.target.value, "event.target.value following input change")
 setSearchArticle(event.target.value)
 }
 
@@ -27,7 +25,7 @@ setSearchArticle(event.target.value)
 function handleSubmit(event){
     event.preventDefault()
     navigate(`/articles/${searchArticle}`)
-    //clear the input
+    //clear the input - not working
     setSearchArticle('')
 }
 
@@ -40,7 +38,7 @@ function handleSubmit(event){
             </ul>
         </nav>
          <form onSubmit={handleSubmit}className="" action="">
-         <input onChange={handleChange} type="text" placeholder="Search by article ID..." name="search"/>
+         <input onChange={handleChange} type="text" placeholder="Search by article ID..." name="search" required/>
          <button type="submit">Go to article</button>
          </form>
          </>
