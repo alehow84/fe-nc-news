@@ -28,3 +28,11 @@ export const getArticleComments = (article_id) => {
         return response.data
     })
 }
+
+export const patchVotes = (article_id, newVotes) => {
+    return api
+    .patch(`/api/articles/${article_id}`, {inc_votes : newVotes})
+    .then((response)=>{
+        return response.data
+    })
+}

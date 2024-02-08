@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { getSingleArticle } from "../Api";
+import { getSingleArticle, patchVotes } from "../Api";
 import LoadingComponent from "./LoadingComponent";
 import ErrorComponent from "./ErrorComponent";
 import Comments from "./Comments";
@@ -16,27 +16,49 @@ import Typography from '@mui/material/Typography';
 
 export default function SingleArticle({singleArticle}){
   //im not using singleArticle
-    const [article, SetArticle] = useState([])
+    const [article, setArticle] = useState([])
     const [isLoading, setIsLoading] = useState(true)
     const [isError, setIsError] = useState(false)
     const [showComments, setShowComments] = useState(false)
     const [comments, setComments] = useState([])
+    const [voteCount, setVoteCount] = useState(null)
+    const [hasVoted, setHasVoted] = useState(false)
     const {article_id} = useParams()
+    
 
     useEffect(()=>{
         getSingleArticle(article_id)
         .then((response)=>{
-            SetArticle(response.article)
+            setArticle(response.article)
+            setVoteCount(response.article.votes)
             setIsLoading(false)
         })
         .catch(()=>{
           setIsError(true)
         })
-    },[])
+    },[voteCount])
 
     function HandleCommentClick() {
       setShowComments(!showComments)
     }
+
+    function handleVote(votes){
+      const newVotes = {inc_votes: votes}
+      setVoteCount((voteCount)=>{voteCount + votes})
+      patchVotes(article_id, newVotes)
+      
+    }
+
+    function handleUpvote(){
+      setHasVoted(true)
+      handleVote(1)
+    }
+
+    function handleDownvote(){
+      setHasVoted(true)
+      handleVote(-1)
+      
+      }
 
     if (isLoading) (<LoadingComponent/>)
     if (!isError) (<ErrorComponent/>)
@@ -64,8 +86,14 @@ export default function SingleArticle({singleArticle}){
           </Typography>
         </CardContent>
         <CardActions>
-          <Button onClick={HandleCommentClick} size="small">Comments: {article.comment_count}</Button>
-          <Button size="small">Votes: {article.votes}</Button>
+          <Button onClick={HandleCommentClick} size="medium">Comments: {article.comment_count}</Button>
+          <Button size="medium">Votes: {hasVoted === false ? article.votes : voteCount}</Button>
+          <Button onClick={handleUpvote} variant="contained" color="success">
+        Upvote 👍
+        </Button>
+        <Button onClick={handleDownvote} variant="contained" color="error">
+        Downvote 👎
+      </Button>
         </CardActions>
       </Card>
       </div>
@@ -73,5 +101,4 @@ export default function SingleArticle({singleArticle}){
 
       </>
     )
-
 }

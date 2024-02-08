@@ -17,9 +17,7 @@ useEffect(()=>{
 
 }, [searchArticle])
 
-//function to hangle change
 function handleChange(event){
-console.log(event.target.value, "event.target.value following input change")
 setSearchArticle(event.target.value)
 }
 
@@ -27,7 +25,7 @@ setSearchArticle(event.target.value)
 function handleSubmit(event){
     event.preventDefault()
     navigate(`/articles/${searchArticle}`)
-    //clear the input
+    //clear the input - not working
     setSearchArticle('')
 }
 
