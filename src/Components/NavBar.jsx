@@ -40,7 +40,7 @@ function handleSubmit(event){
             </ul>
         </nav>
          <form onSubmit={handleSubmit}className="" action="">
-         <input onChange={handleChange} type="text" placeholder="Search by article ID..." name="search"/>
+         <input onChange={handleChange} type="text" placeholder="Search by article ID..." name="search" required/>
          <button type="submit">Go to article</button>
          </form>
          </>

@@ -1,5 +1,5 @@
 export default function LoadingComponent(){
     return (
-        <p>Content loading...Thanks for your patience! 😴</p>
+        <p className="alternate-content">Content loading...Thanks for your patience! 😴</p>
     )
 }
