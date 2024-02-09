@@ -10,7 +10,6 @@
 }
 
 #header {
-  /* background: rgba(228, 132, 7, 0.813); */
   background: linear-gradient(112.4deg, rgb(169, 28, 115) 21.6%, rgb(219, 112, 54) 92.2%);
   color: white;
   padding: 30px;
@@ -37,12 +36,13 @@ footer {
   border: 4px outset #f65f0d;
   border-radius: 20px;
 }
+/* split colours of styled-box into 3 seperate themes for userpagecard, topic/topic card and comments cards add theme class to each*/
 .styled-box {
   max-width:700px ;
   margin: 20px;
   padding:10px;
   position: relative;
-  right: -20px;
+  left: -5px;
   text-align:center;
   color: black;
   background: rgba(104, 205, 253, 0.1);
@@ -53,7 +53,7 @@ footer {
 
 .articles-card{
   max-width: 800px;
-  margin: 30px;
+  margin: 30px 30px 30px 5px;
   box-shadow: 19px 21px 34px 3px rgba(0, 0, 0, 0.2);
 }
 
@@ -61,7 +61,16 @@ footer {
   margin: 50px;
 }
 nav {
-  padding: 30px 10px 200px 10px;
+  padding: 30px 20px 200px 20px;
   margin-top: 30px;
   background: rgba(74, 144, 226, 0.9);
+  border-radius: 4px;
+  border: 4px outset #2080f1;;
+}
+.nav-items {
+  position:relative;
+  left:-15px;
+}
+.nav-items > li {
+  margin:50px 0px;
 }

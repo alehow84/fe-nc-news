@@ -34,15 +34,33 @@ function handleSubmit(event){
     return (
         <>
         <nav ref={stickyRef}>
-            <ul>
+            <ul className="nav-items">
+
+                <NavLink linkDestination={'/users'} linkName={'Switch User'} />
                 <NavLink linkDestination={'/'} linkName={'Articles Home'} />
-                {/* Add more Nav links here for Topics and switch users later */}
+                <li>
+            <form onSubmit={handleSubmit}className="" action="">
+            <input onChange={handleChange} type="text" placeholder="Search by article ID..." name="search" required/>
+            <button type="submit">View Article</button>
+            </form>
+            </li>
+            <li>
+            <form onSubmit={handleSubmit}>
+        <label>Search Articles by Topic</label>
+        <select>
+              <option value="option 1" >
+                option 1
+              </option>
+              <option value="option 2">
+                option 2
+              </option>
+        </select>
+        <input type="submit" value="Reset filter" />
+      </form>
+      </li>    
             </ul>
         
-         <form onSubmit={handleSubmit}className="" action="">
-         <input onChange={handleChange} type="text" placeholder="Search by article ID..." name="search" required/>
-         <button type="submit">Go to article</button>
-         </form>
+         
          </nav>
          </>
     )

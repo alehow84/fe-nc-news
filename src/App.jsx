@@ -28,7 +28,7 @@ function App() {
         <Col><Header header={header}/></Col>
       </Row>
       <Row>
-        <Col xs={2}><NavBar setSingleArticle={setSingleArticle}/></Col>
+        <Col xs={3}><NavBar setSingleArticle={setSingleArticle}/></Col>
         <Col>
         <Routes>
         <Route path={"/"} element={<ArticlesHomepage setSingleArticle={setSingleArticle}/>}/>
