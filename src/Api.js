@@ -29,6 +29,15 @@ export const getArticleComments = (article_id) => {
     })
 }
 
+export const getUsers = () => {
+
+    return api
+    .get(`/api/users`)
+    .then((response)=>{
+        return response.data
+    })
+}
+
 export const patchVotes = (article_id, newVotes) => {
     return api
     .patch(`/api/articles/${article_id}`, {inc_votes : newVotes})

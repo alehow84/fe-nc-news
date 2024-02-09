@@ -6,6 +6,8 @@ import SingleArticle from './Components/SingleArticle'
 import NavBar from './Components/NavBar'
 import Footer from './Components/Footer'
 import { Route, Routes } from 'react-router-dom'
+import { useContext } from 'react'
+import UserContext from './Context/UserContext'
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -13,17 +15,15 @@ import Col from 'react-bootstrap/Col';
 function App() {
   const [header, setHeader] = useState("Welcome to NC News 💬")
   const [singleArticle, setSingleArticle] = useState([])
+  const [loggedInUser, setLoggedInUser] = useState({
+    "username": "jessjelly",
+    "name": "Jess Jelly",
+    "avatar_url": "https://vignette.wikia.nocookie.net/mrmen/images/4/4f/MR_JELLY_4A.jpg/revision/latest?cb=20180104121141"
+    })
 
   return (
-    <>
-      {/* <Header header={header}/>
-      <NavBar setSingleArticle={setSingleArticle}/>
-      <Routes>
-        <Route path={"/"} element={<ArticlesHomepage setSingleArticle={setSingleArticle}/>}/>
-        <Route path={"/articles/:article_id"} element={<SingleArticle setHeader={setHeader} singleArticle={singleArticle}/>}/>
-      </Routes>
-      <Footer/> */}
-      <Container >
+    <UserContext.Provider value={loggedInUser}>
+      <Container className="App" >
       <Row>
         <Col><Header header={header}/></Col>
       </Row>
@@ -40,7 +40,7 @@ function App() {
         <Col><Footer/></Col>
       </Row>
     </Container>
-    </>
+    </UserContext.Provider>
   )
 }
 

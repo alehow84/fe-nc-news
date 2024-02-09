@@ -12,9 +12,5 @@ export default function Header({header}){
         <Col><User/></Col>
       </Row>
     </Container>
-        // <header>
-        // <h1>{header}</h1> 
-        // <User/>
-        // </header>
     )
 }
