@@ -5,6 +5,7 @@ import LoadingComponent from "./LoadingComponent";
 import ErrorComponent from "./ErrorComponent";
 import Comments from "./Comments";
 import * as React from 'react';
+import {Row, Col} from 'react-bootstrap'
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
@@ -20,17 +21,18 @@ export default function SingleArticle({singleArticle}){
     const [isLoading, setIsLoading] = useState(true)
     const [isError, setIsError] = useState(false)
     const [showComments, setShowComments] = useState(false)
-    const [comments, setComments] = useState([])
+    const [commentCount, setCommentCount] = useState(null)
+    const [hasCommented, setHasCommented] = useState(false)
     const [voteCount, setVoteCount] = useState(null)
     const [hasVoted, setHasVoted] = useState(false)
     const {article_id} = useParams()
     
-
     useEffect(()=>{
         getSingleArticle(article_id)
         .then((response)=>{
             setArticle(response.article)
             setVoteCount(response.article.votes)
+            setCommentCount(Number(response.article.comment_count))
             setIsLoading(false)
         })
         .catch(()=>{
@@ -49,17 +51,6 @@ export default function SingleArticle({singleArticle}){
       
     }
 
-    function handleUpvote(){
-      setHasVoted(true)
-      handleVote(1)
-    }
-
-    function handleDownvote(){
-      setHasVoted(true)
-      handleVote(-1)
-      
-      }
-
     if (isLoading) (<LoadingComponent/>)
     if (!isError) (<ErrorComponent/>)
 
@@ -76,29 +67,35 @@ export default function SingleArticle({singleArticle}){
           <Typography gutterBottom variant="h4" component="div">
             {article.title}
           </Typography>
-          <Typography gutterBottom variant="h6" component="div">
-            Author: {article.author}
-          </Typography>
-          <Typography gutterBottom variant="h6" component="div">
+          <Row>
+            <Col>
+            <Typography gutterBottom variant="h6" component="div">
             Topic: {article.topic}
           </Typography>
+            </Col>
+            <Col>
+            <Typography gutterBottom variant="h6" component="div">
+            Author: {article.author}
+          </Typography>
+            </Col>
+          </Row>
           <Typography variant="body1" color="text">
             {article.body}
           </Typography>
         </CardContent>
         <CardActions>
-          <Button onClick={HandleCommentClick} size="medium">Comments: {article.comment_count}</Button>
+          <Button onClick={HandleCommentClick} size="medium">Comments: {hasCommented === false ? article.comment_count : commentCount}</Button>
           <Button size="medium">Votes: {hasVoted === false ? article.votes : voteCount}</Button>
-          <Button onClick={handleUpvote} variant="contained" color="success">
+          <Button onClick={event=>{handleVote(event.target.value)}} value={1} variant="contained" color="success">
         Upvote 👍
         </Button>
-        <Button onClick={handleDownvote} variant="contained" color="error">
+        <Button onClick={event=>{handleVote(event.target.value)}} value={-1} variant="contained" color="error">
         Downvote 👎
       </Button>
         </CardActions>
       </Card>
       </div>
-      {showComments === false ? null : (<Comments comments={comments} setComments={setComments} article_id={article_id}/>)}
+      {showComments === false ? null : (<Comments article_id={article_id} commentCount={commentCount} setCommentCount={setCommentCount} setHasCommented={setHasCommented}/>)}
 
       </>
     )

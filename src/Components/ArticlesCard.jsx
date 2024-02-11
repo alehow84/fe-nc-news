@@ -2,6 +2,8 @@ import '../CSS/App.css'
 import { Route, Routes } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import * as React from 'react';
+import {format} from "date-fns";
+import {Row, Col} from 'react-bootstrap'
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
@@ -26,18 +28,28 @@ export default function ArticlesCard({articles}){
         <Typography gutterBottom variant="h5" component="div">
           {article.title}
         </Typography>
+        <Row>
+        <Col>
+        <Typography variant="body2" color="text.secondary">
+        Article ID: {article.article_id}
+        </Typography>
+        </Col>
+        <Col>
         <Typography variant="body2" color="text.secondary">
           Author: {article.author}
         </Typography>
+        </Col>
+        <Col>
         <Typography variant="body2" color="text.secondary">
-          Article ID: {article.article_id}
+         Written: {format(new Date(`${article.created_at}`), "dd/MM/yyyy")}
         </Typography>
-        <Typography variant="body2" color="text.secondary">
-         Written: {article.created_at.slice(0,10)}
-        </Typography>
+        </Col>
+        <Col>
         <Typography variant="body2" color="text.secondary">
          Votes: {article.votes}
         </Typography>
+        </Col>
+        </Row>
         </CardContent>
         <CardActions>
         <Button size="small">Click to read more...</Button>

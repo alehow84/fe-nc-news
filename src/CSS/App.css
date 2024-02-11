@@ -10,10 +10,9 @@
 }
 
 #header {
-  background: linear-gradient(112.4deg, rgb(169, 28, 115) 21.6%, rgb(219, 112, 54) 92.2%);
+  background: linear-gradient(109.6deg, rgb(33, 25, 180) 11.2%, rgb(253, 29, 29) 55.2%, rgb(252, 176, 69) 91.1%);
   color: white;
   padding: 30px;
-  border: 2px solid rgba(248, 123, 6, 0.448);
   border-radius: 31px;
 }
 .header-text {
@@ -40,8 +39,9 @@ footer {
   padding:10px;
   border: 4px outset #f65f0d;
   border-radius: 20px;
+  background-color: white;
 }
-/* split colours of styled-box into 3 seperate themes for userpagecard, topic/topic card and comments cards add theme class to each*/
+/* split colours of styled-box into 2 seperate themes for userpagecard, and comments cards add theme class to each*/
 .styled-box {
   max-width:700px ;
   margin: 20px;
@@ -50,7 +50,7 @@ footer {
   left: -5px;
   text-align:center;
   color: black;
-  background: rgba(104, 205, 253, 0.1);
+  background: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
   border: 1px solid #5d91f1;
   border-radius: 20px;
   box-shadow: 20px 15px 32px rgba(0, 0, 0, 0.2);
@@ -68,9 +68,8 @@ footer {
 nav {
   padding: 30px 20px 200px 20px;
   margin-top: 30px;
-  background: rgba(74, 144, 226, 0.9);
+  background: linear-gradient(89deg, rgb(21, 74, 189) 0.1%, rgb(26, 138, 211) 51.5%, rgb(72, 177, 234) 100.2%);
   border-radius: 4px;
-  border: 4px outset #2080f1;;
 }
 .nav-items {
   position:relative;
@@ -78,4 +77,8 @@ nav {
 }
 .nav-items > li {
   margin:50px 0px;
+}
+
+.comment-form {
+  display:inline
 }

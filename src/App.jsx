@@ -1,16 +1,19 @@
 import { useState } from 'react'
+import { Route, Routes } from 'react-router-dom'
 import './CSS/App.css'
+import background from './assets/squiggle_lines_pattern_background.jpg'
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 import Header from './Components/Header'
 import ArticlesHomepage from './Components/ArticlesHomepage'
 import SingleArticle from './Components/SingleArticle'
 import NavBar from './Components/NavBar'
 import Footer from './Components/Footer'
-import { Route, Routes } from 'react-router-dom'
-import { useContext } from 'react'
+
+// import { useContext } from 'react'
 import UserContext from './Context/UserContext'
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
+
 
 function App() {
   const [header, setHeader] = useState("Welcome to NC News 💬")
@@ -22,8 +25,9 @@ function App() {
     })
 
   return (
+    // <div className="App" style={{backgroundImage: `url(${background})`}}>
     <UserContext.Provider value={loggedInUser}>
-      <Container className="App" >
+      <Container className="App-layout" >
       <Row>
         <Col><Header header={header}/></Col>
       </Row>
@@ -41,6 +45,7 @@ function App() {
       </Row>
     </Container>
     </UserContext.Provider>
+    // </div>
   )
 }
 
