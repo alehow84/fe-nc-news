@@ -16,7 +16,7 @@ function handleSubmit(event){
         body: newComment,
         username: username
     })
-    .then((postedComment)=>{
+    .then(({postedComment})=>{
         setNewComment("")
         setHasCommented(true)
         setCommentCount(commentCount + 1)
@@ -31,18 +31,6 @@ function handleSubmit(event){
 }
 
 return (
-    // <Row >
-    //         <Col sm={8}>
-    //         <Form onSubmit={handleSubmit}>
-    //         <Form.Group className="comment-form">
-    //         <Form.Control type="text" placeholder="Write your comment..." value={newComment} onChange={(event)=>{
-    //             setNewComment(event.target.value)
-    //         }}className="mr-sm-2" required/>
-    //         <Button variant ="primary" type="submit" >Post ➣</  Button>
-    //         </Form.Group>
-    //         </Form>
-    //         </Col>
-    //         </Row>
 <Form onSubmit={handleSubmit}>
       <Row className="align-items-center">
         <Col sm={10}>

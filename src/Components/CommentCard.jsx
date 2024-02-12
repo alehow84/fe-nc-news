@@ -1,6 +1,7 @@
 import {format} from "date-fns";
 
 export default function CommentCard({comment}){
+    console.log(comment, "<<<comment being received in commentCard")
 
     return (
         <div>

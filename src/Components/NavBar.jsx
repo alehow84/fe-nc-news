@@ -35,7 +35,6 @@ function handleSubmit(event){
         <>
         <nav ref={stickyRef}>
             <ul className="nav-items">
-
                 <NavLink linkDestination={'/users'} linkName={'Switch User'} />
                 <NavLink linkDestination={'/'} linkName={'Articles Home'} />
                 <li>
@@ -59,8 +58,6 @@ function handleSubmit(event){
       </form>
       </li>    
             </ul>
-        
-         
          </nav>
          </>
     )
