@@ -55,3 +55,11 @@ export const postComment = (article_id, commentObj) => {
     })
 
 }
+
+export const deleteComment = (commentId) =>{
+    return api
+    .delete(`api/comments/${commentId}`)
+    .then(({status})=>{
+        return status
+    })
+}
