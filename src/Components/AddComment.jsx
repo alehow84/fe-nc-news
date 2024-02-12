@@ -11,6 +11,7 @@ const username = loggedInUser.username
 
 function handleSubmit(event){
     event.preventDefault();
+   //add functionality here to show in the process of attempting to post comment
     
     postComment( article_id, {
         body: newComment,
