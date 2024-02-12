@@ -30,7 +30,7 @@ if(isLoading) return (<LoadingComponent/>)
                 return (
                 <li key={comment.comment_id}>
                 <StyledBox>
-                    <CommentCard comment={comment}/>
+                    <CommentCard setComments={setComments} comment={comment}/>
                 </StyledBox>
             </li> )
             })}

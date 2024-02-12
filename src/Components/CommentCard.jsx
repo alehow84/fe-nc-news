@@ -1,17 +1,12 @@
 import {Row, Col} from 'react-bootstrap'
 import DeleteComment from './DeleteComment';
-import {useState, useContext} from "react"
+import {useContext} from "react"
 import UserContext from '../Context/UserContext';
 
 import {format} from "date-fns";
 
-export default function CommentCard({comment}){
+export default function CommentCard({setComments, comment}){
     const loggedInUser = useContext(UserContext)
-    const [deleteButtonVisable, isDeleteButtonVisible] = useState(false)
-
-   //define a state for deleteButtonVisible and set to false
-   //pass setState for above as prop to DeleteComment Component
-   //conditional rendering - DeleteComment component is only rendered if 
 
     return (
         <div>
@@ -19,7 +14,7 @@ export default function CommentCard({comment}){
             <p>{comment.body}</p>
             <Row>
                 <Col><p>Votes: {comment.votes}</p></Col>
-                <Col>{comment.author === loggedInUser ? <DeleteComment deleteButtonVisable={deleteButtonVisable} isDeleteButtonVisible={isDeleteButtonVisible}/> : null}</Col>
+                <Col>{comment.author === loggedInUser.username ? <DeleteComment  setComments={setComments} comment={comment}/> : null}</Col>
             </Row>
             
         </div>
