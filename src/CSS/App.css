@@ -1,23 +1,27 @@
 #root {
-  max-width: 1280px;
+  /* max-width: 1280px; */
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
-}
-
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
 }
 
 .card {
   padding: 2em;
 }
 
-.read-the-docs {
-  color: #888;
+#header {
+  background: linear-gradient(109.6deg, rgb(33, 25, 180) 11.2%, rgb(253, 29, 29) 55.2%, rgb(252, 176, 69) 91.1%);
+  color: white;
+  padding: 30px;
+  border-radius: 31px;
+}
+.header-text {
+  text-shadow: 2px 2px 5px rgb(11, 11, 11);
+}
+.header-user-display > img {
+  max-width: 70px;
+  border-radius: 35px;
+  border: 4px outset black
 }
 
 ul {
@@ -35,25 +39,46 @@ footer {
   padding:10px;
   border: 4px outset #f65f0d;
   border-radius: 20px;
+  background-color: white;
 }
+/* split colours of styled-box into 2 seperate themes for userpagecard, and comments cards add theme class to each*/
 .styled-box {
-  max-width:750px ;
+  max-width:700px ;
   margin: 20px;
+  padding:10px;
   position: relative;
-  left:-10px;
+  left: -5px;
   text-align:center;
   color: black;
-  background: rgba(104, 205, 253, 0.1);
+  background: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
   border: 1px solid #5d91f1;
   border-radius: 20px;
   box-shadow: 20px 15px 32px rgba(0, 0, 0, 0.2);
 }
 
 .articles-card{
-  margin: 30px;
+  max-width: 800px;
+  margin: 30px 30px 30px 5px;
   box-shadow: 19px 21px 34px 3px rgba(0, 0, 0, 0.2);
 }
 
 .alternate-content {
   margin: 50px;
+}
+nav {
+  padding: 30px 20px 200px 20px;
+  margin-top: 30px;
+  background: linear-gradient(89deg, rgb(21, 74, 189) 0.1%, rgb(26, 138, 211) 51.5%, rgb(72, 177, 234) 100.2%);
+  border-radius: 4px;
+}
+.nav-items {
+  position:relative;
+  left:-15px;
+}
+.nav-items > li {
+  margin:50px 0px;
+}
+
+.comment-form {
+  display:inline
 }

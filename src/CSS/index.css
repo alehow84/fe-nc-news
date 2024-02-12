@@ -19,15 +19,17 @@ a {
   text-decoration: inherit;
 }
 a:hover {
-  color: #f25363;
+  color: #900048;
 }
 
 body {
   margin: 0;
   display: flex;
-  place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  background-image: url('../assets/squiggle_lines_pattern_background.jpg');
+  background-repeat: none;
+  background-size: cover;
 }
 
 h1 {
