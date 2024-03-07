@@ -2,9 +2,15 @@ export default function TopicsOptions({ topics }) {
   return (
     <>
       <select>
-        {console.log(topics, "<<topics in TopicOptions")}
-        <option value="option 1">option 1</option>
-        <option value="option 2">option 2</option>
+        {console.log(topics, "<<topics in TopicsOptions")}
+        {/* Sometimes I'm getting a typeError on the below, but when i first comment the code back in, it works */}
+        {topics.map((topic) => {
+          return (
+            <option key={topic.slug} value={topic.slug}>
+              {topic.slug}
+            </option>
+          );
+        })}
       </select>
     </>
   );

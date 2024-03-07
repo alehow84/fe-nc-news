@@ -29,8 +29,9 @@ export const getUsers = () => {
 };
 
 export const getTopics = () => {
-  return api.get(`/topics`).then((response) => {
-    console.log(response, "<<response in getTopics");
+  return api.get(`/topics`).then(({ data }) => {
+    console.log(data, "<<response in getTopics");
+    return data;
   });
 };
 

@@ -22,8 +22,8 @@ export default function NavBar({ setSingleArticle }) {
   useEffect(() => {
     //make api call to get topics
     //in then block, set topics to the response
-    getTopics().then((response) => {
-      setTopics(response);
+    getTopics().then(({ topics }) => {
+      setTopics(topics);
     });
   }, [topics]);
 
@@ -32,11 +32,16 @@ export default function NavBar({ setSingleArticle }) {
   }
 
   //function to handle submit
-  function handleSubmit(event) {
+  function handleSubmitArticleId(event) {
     event.preventDefault();
     navigate(`/articles/${searchArticle}`);
     //clear the input - not working
     setSearchArticle("");
+  }
+
+  function handleResetFilter(event) {
+    event.preventDefault();
+    navigate(`/`);
   }
 
   return (
@@ -46,7 +51,7 @@ export default function NavBar({ setSingleArticle }) {
           <NavLink linkDestination={"/users"} linkName={"Switch User"} />
           <NavLink linkDestination={"/"} linkName={"Articles Home"} />
           <li>
-            <form onSubmit={handleSubmit} className="" action="">
+            <form onSubmit={handleSubmitArticleId} className="" action="">
               <input
                 onChange={handleChange}
                 type="text"
@@ -58,7 +63,7 @@ export default function NavBar({ setSingleArticle }) {
             </form>
           </li>
           <li>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleResetFilter}>
               <label>Search Articles by Topic</label>
               <TopicsOptions topics={topics} />
               <input type="submit" value="Reset filter" />
