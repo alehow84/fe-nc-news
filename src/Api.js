@@ -30,7 +30,6 @@ export const getUsers = () => {
 
 export const getTopics = () => {
   return api.get(`/topics`).then(({ data }) => {
-    console.log(data, "<<response in getTopics");
     return data;
   });
 };

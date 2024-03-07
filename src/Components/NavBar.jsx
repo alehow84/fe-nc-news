@@ -8,7 +8,7 @@ import { getAllArticles, getSingleArticle, getTopics } from "../Api";
 export default function NavBar({ setSingleArticle }) {
   const stickyRef = useStickyBox({ offsetTop: 20, offsetBottom: 20 });
   const [searchArticle, setSearchArticle] = useState("");
-  const [topics, setTopics] = useState("");
+  const [topics, setTopics] = useState([]);
   const navigate = useNavigate();
 
   //useEffect to rerender after searchArticle state is changed and make the call to the api to get single article
