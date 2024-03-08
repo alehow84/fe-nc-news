@@ -7,13 +7,23 @@ import { getArticlesByTopic } from "../Api";
 
 export default function TopicalArticles({ articles }) {
   const [topicalArticles, setTopicalArticles] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [isError, setIsError] = useState(false);
   const { topic } = useParams();
 
   useEffect(() => {
-    getArticlesByTopic(topic).then((response) => {
-      setTopicalArticles(response.articles);
-    });
+    getArticlesByTopic(topic)
+      .then((response) => {
+        setTopicalArticles(response.articles);
+        setIsLoading(false);
+      })
+      .catch(() => {
+        setIsError(true);
+      });
   }, [topicalArticles]);
+
+  if (isLoading) return <LoadingComponent />;
+  if (!Error) return <ErrorComponent />;
 
   return (
     <>
