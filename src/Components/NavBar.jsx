@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
-import { Navigate, useNavigate } from "react-router-dom";
 import { useStickyBox } from "react-sticky-box";
+import { Navigate, useNavigate } from "react-router-dom";
 import NavLink from "./NavLink";
-import TopicsOptions from "./TopicsOptions";
+import TopicsForm from "./TopicsForm";
 import { getAllArticles, getSingleArticle, getTopics } from "../Api";
 
 export default function NavBar({ setSingleArticle }) {
@@ -10,7 +10,6 @@ export default function NavBar({ setSingleArticle }) {
   const [searchArticle, setSearchArticle] = useState("");
   const [topics, setTopics] = useState([]);
   const navigate = useNavigate();
-
   //useEffect to rerender after searchArticle state is changed and make the call to the api to get single article
   useEffect(() => {
     getSingleArticle(searchArticle).then((response) => {
@@ -39,11 +38,6 @@ export default function NavBar({ setSingleArticle }) {
     setSearchArticle("");
   }
 
-  function handleResetFilter(event) {
-    event.preventDefault();
-    navigate(`/`);
-  }
-
   return (
     <>
       <nav ref={stickyRef}>
@@ -63,11 +57,12 @@ export default function NavBar({ setSingleArticle }) {
             </form>
           </li>
           <li>
-            <form onSubmit={handleResetFilter}>
+            {/* <form onSubmit={handleResetFilter}>
               <label>Search Articles by Topic</label>
               <TopicsOptions topics={topics} />
               <input type="submit" value="Reset filter" />
-            </form>
+            </form> */}
+            <TopicsForm topics={topics} />
           </li>
         </ul>
       </nav>
