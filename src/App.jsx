@@ -18,6 +18,7 @@ import UserContext from "./Context/UserContext";
 function App() {
   const [header, setHeader] = useState("Welcome to NC News 💬");
   const [singleArticle, setSingleArticle] = useState([]);
+  const [articles, setArticles] = useState([]);
   const [loggedInUser, setLoggedInUser] = useState({
     username: "jessjelly",
     name: "Jess Jelly",
@@ -43,7 +44,11 @@ function App() {
               <Route
                 path={"/"}
                 element={
-                  <ArticlesHomepage setSingleArticle={setSingleArticle} />
+                  <ArticlesHomepage
+                    setSingleArticle={setSingleArticle}
+                    articles={articles}
+                    setArticles={setArticles}
+                  />
                 }
               />
               <Route
@@ -57,7 +62,7 @@ function App() {
               />
               <Route
                 path={"/articles/topics/:topic"}
-                element={<TopicalArticles />}
+                element={<TopicalArticles articles={articles} />}
               />
             </Routes>
           </Col>

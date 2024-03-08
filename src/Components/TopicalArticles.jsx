@@ -5,22 +5,19 @@ import LoadingComponent from "./LoadingComponent";
 import ErrorComponent from "./ErrorComponent";
 import { getArticlesByTopic } from "../Api";
 
-export default function TopicalArticles() {
+export default function TopicalArticles({ articles }) {
   const [topicalArticles, setTopicalArticles] = useState([]);
   const { topic } = useParams();
-  //this component will search for articles by Topic and render the articles card based on that response
-  //use params hook - destructure topics and use this to make a call to api doing a get request for /api/articles?topic
+
   useEffect(() => {
     getArticlesByTopic(topic).then((response) => {
-      console.log(response.articles, "response in Topical Articles");
-      setTopicalArticles(response);
+      setTopicalArticles(response.articles);
     });
-  }, []);
+  }, [topicalArticles]);
 
   return (
     <>
-      <h1>Articles by topic</h1>
-      {/* <ArticlesCard topicalArticles={topicalArticles} /> */}
+      <ArticlesCard articles={articles} topicalArticles={topicalArticles} />
     </>
   );
 }

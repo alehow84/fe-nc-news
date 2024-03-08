@@ -11,9 +11,12 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 
 export default function ArticlesCard({ articles, topicalArticles }) {
+  let articleCardArr = articles;
+  topicalArticles ? (articleCardArr = topicalArticles) : null;
+
   return (
     <>
-      {articles.map((article) => {
+      {articleCardArr.map((article) => {
         return (
           <div key={article.article_id} className="articles-card">
             <Link to={`/articles/${article.article_id}`}>
