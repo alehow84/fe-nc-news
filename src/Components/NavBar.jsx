@@ -4,6 +4,7 @@ import { Navigate, useNavigate } from "react-router-dom";
 import NavLink from "./NavLink";
 import TopicsForm from "./TopicsForm";
 import { getAllArticles, getSingleArticle, getTopics } from "../Api";
+import OrderToggleButton from "./OrderToggleButton";
 
 export default function NavBar({ setSingleArticle }) {
   const stickyRef = useStickyBox({ offsetTop: 20, offsetBottom: 20 });
@@ -57,11 +58,9 @@ export default function NavBar({ setSingleArticle }) {
             </form>
           </li>
           <li>
-            {/* <form onSubmit={handleResetFilter}>
-              <label>Search Articles by Topic</label>
-              <TopicsOptions topics={topics} />
-              <input type="submit" value="Reset filter" />
-            </form> */}
+            <OrderToggleButton />
+          </li>
+          <li>
             <TopicsForm topics={topics} />
           </li>
         </ul>
