@@ -34,6 +34,12 @@ export const getTopics = () => {
   });
 };
 
+export const getArticlesByTopic = (selectedTopic) => {
+  return api.get(`/articles?topic=${selectedTopic}`).then(({ data }) => {
+    return data;
+  });
+};
+
 export const patchVotes = (article_id, newVotes) => {
   return api
     .patch(`/articles/${article_id}`, { inc_votes: newVotes })
