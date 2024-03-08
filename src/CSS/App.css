@@ -10,7 +10,12 @@
 }
 
 #header {
-  background: linear-gradient(109.6deg, rgb(33, 25, 180) 11.2%, rgb(253, 29, 29) 55.2%, rgb(252, 176, 69) 91.1%);
+  background: linear-gradient(
+    109.6deg,
+    rgb(33, 25, 180) 11.2%,
+    rgb(253, 29, 29) 55.2%,
+    rgb(252, 176, 69) 91.1%
+  );
   color: white;
   padding: 30px;
   border-radius: 31px;
@@ -21,7 +26,7 @@
 .header-user-display > img {
   max-width: 70px;
   border-radius: 35px;
-  border: 4px outset black
+  border: 4px outset black;
 }
 
 ul {
@@ -34,21 +39,21 @@ ul {
 
 footer {
   position: relative;
-  left:-5px;
+  left: -5px;
   margin: 50px;
-  padding:10px;
+  padding: 10px;
   border: 4px outset #f65f0d;
   border-radius: 20px;
   background-color: white;
 }
 /* split colours of styled-box into 2 seperate themes for userpagecard, and comments cards add theme class to each*/
 .styled-box {
-  max-width:700px ;
+  max-width: 700px;
   margin: 20px;
-  padding:10px;
+  padding: 10px;
   position: relative;
   left: -5px;
-  text-align:center;
+  text-align: center;
   color: black;
   background: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
   border: 1px solid #5d91f1;
@@ -56,7 +61,7 @@ footer {
   box-shadow: 20px 15px 32px rgba(0, 0, 0, 0.2);
 }
 
-.articles-card{
+.articles-card {
   max-width: 800px;
   margin: 30px 30px 30px 5px;
   box-shadow: 19px 21px 34px 3px rgba(0, 0, 0, 0.2);
@@ -68,17 +73,27 @@ footer {
 nav {
   padding: 30px 20px 200px 20px;
   margin-top: 30px;
-  background: linear-gradient(89deg, rgb(21, 74, 189) 0.1%, rgb(26, 138, 211) 51.5%, rgb(72, 177, 234) 100.2%);
+  background: linear-gradient(
+    89deg,
+    rgb(21, 74, 189) 0.1%,
+    rgb(26, 138, 211) 51.5%,
+    rgb(72, 177, 234) 100.2%
+  );
   border-radius: 4px;
 }
 .nav-items {
-  position:relative;
-  left:-15px;
+  position: relative;
+  left: -15px;
 }
 .nav-items > li {
-  margin:50px 0px;
+  margin: 50px 0px;
 }
 
 .comment-form {
-  display:inline
+  display: inline;
+}
+
+.loading-container {
+  margin-left: 200px;
+  margin-top: 100px;
 }
