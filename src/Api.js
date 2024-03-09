@@ -42,9 +42,9 @@ export const getArticlesByTopic = (selectedTopic) => {
     });
 };
 //the below will also take a sortQuery
-export const sortArticles = (orderQuery) => {
+export const sortArticles = (orderQuery, sortQuery) => {
   return api
-    .get(`/articles/`, { params: { order: orderQuery } })
+    .get(`/articles/`, { params: { order: orderQuery, sort_by: sortQuery } })
     .then(({ data }) => {
       console.log(data, "<<< data in sortArticles api call");
       return data;

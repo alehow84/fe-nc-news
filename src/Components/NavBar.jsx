@@ -5,6 +5,7 @@ import NavLink from "./NavLink";
 import TopicsForm from "./TopicsForm";
 import { getAllArticles, getSingleArticle, getTopics } from "../Api";
 import OrderToggleRadio from "./OrderToggleRadio";
+import SortByForm from "./SortByForm";
 
 export default function NavBar({ setSingleArticle, setArticles }) {
   const stickyRef = useStickyBox({ offsetTop: 20, offsetBottom: 20 });
@@ -62,6 +63,7 @@ export default function NavBar({ setSingleArticle, setArticles }) {
           </li>
           <li>
             <TopicsForm topics={topics} />
+            <SortByForm setArticles={setArticles} />
           </li>
         </ul>
       </nav>
