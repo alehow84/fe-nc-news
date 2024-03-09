@@ -33,11 +33,22 @@ export const getTopics = () => {
     return data;
   });
 };
-
+//?topic=${selectedTopic}
 export const getArticlesByTopic = (selectedTopic) => {
-  return api.get(`/articles?topic=${selectedTopic}`).then(({ data }) => {
-    return data;
-  });
+  return api
+    .get(`/articles/`, { params: { topic: selectedTopic } })
+    .then(({ data }) => {
+      return data;
+    });
+};
+//the below will also take a sortQuery
+export const sortArticles = (orderQuery) => {
+  return api
+    .get(`/articles/`, { params: { order: orderQuery } })
+    .then(({ data }) => {
+      console.log(data, "<<< data in sortArticles api call");
+      return data;
+    });
 };
 
 export const patchVotes = (article_id, newVotes) => {

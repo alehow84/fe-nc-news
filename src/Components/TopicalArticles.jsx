@@ -13,8 +13,8 @@ export default function TopicalArticles({ articles }) {
 
   useEffect(() => {
     getArticlesByTopic(topic)
-      .then((response) => {
-        setTopicalArticles(response.articles);
+      .then(({ articles }) => {
+        setTopicalArticles(articles);
         setIsLoading(false);
       })
       .catch(() => {

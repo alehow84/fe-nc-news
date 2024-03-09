@@ -4,9 +4,9 @@ import { Navigate, useNavigate } from "react-router-dom";
 import NavLink from "./NavLink";
 import TopicsForm from "./TopicsForm";
 import { getAllArticles, getSingleArticle, getTopics } from "../Api";
-import OrderToggleButton from "./OrderToggleButton";
+import OrderToggleRadio from "./OrderToggleRadio";
 
-export default function NavBar({ setSingleArticle }) {
+export default function NavBar({ setSingleArticle, setArticles }) {
   const stickyRef = useStickyBox({ offsetTop: 20, offsetBottom: 20 });
   const [searchArticle, setSearchArticle] = useState("");
   const [topics, setTopics] = useState([]);
@@ -58,7 +58,7 @@ export default function NavBar({ setSingleArticle }) {
             </form>
           </li>
           <li>
-            <OrderToggleButton />
+            <OrderToggleRadio setArticles={setArticles} />
           </li>
           <li>
             <TopicsForm topics={topics} />

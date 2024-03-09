@@ -26,8 +26,12 @@ function App() {
       "https://vignette.wikia.nocookie.net/mrmen/images/4/4f/MR_JELLY_4A.jpg/revision/latest?cb=20180104121141",
   });
 
+  /*
+For Q11
+- pass setArticles as props to Navbar for use in OrderToggle Button - done
+*/
+
   return (
-    // <div className="App" style={{backgroundImage: `url(${background})`}}>
     <UserContext.Provider value={loggedInUser}>
       <Container className="App-layout">
         <Row>
@@ -37,7 +41,10 @@ function App() {
         </Row>
         <Row>
           <Col xs={3}>
-            <NavBar setSingleArticle={setSingleArticle} />
+            <NavBar
+              setSingleArticle={setSingleArticle}
+              setArticles={setArticles}
+            />
           </Col>
           <Col>
             <Routes>
@@ -74,7 +81,6 @@ function App() {
         </Row>
       </Container>
     </UserContext.Provider>
-    // </div>
   );
 }
 

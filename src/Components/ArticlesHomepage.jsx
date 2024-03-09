@@ -10,7 +10,7 @@ export default function ArticlesHomepage({
   setArticles,
 }) {
   // const [articles, setArticles] = useState([])
-
+  console.log(articles, "<<articles in ArticlesHomepage");
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
 
