@@ -4,8 +4,7 @@ import { Navigate, useNavigate } from "react-router-dom";
 import NavLink from "./NavLink";
 import TopicsForm from "./TopicsForm";
 import { getAllArticles, getSingleArticle, getTopics } from "../Api";
-import OrderToggleRadio from "./OrderToggleRadio";
-import SortByForm from "./SortByForm";
+import SortArticles from "./SortArticles";
 
 export default function NavBar({ setSingleArticle, setArticles }) {
   const stickyRef = useStickyBox({ offsetTop: 20, offsetBottom: 20 });
@@ -47,6 +46,9 @@ export default function NavBar({ setSingleArticle, setArticles }) {
           <NavLink linkDestination={"/users"} linkName={"Switch User"} />
           <NavLink linkDestination={"/"} linkName={"Articles Home"} />
           <li>
+            <TopicsForm topics={topics} />
+          </li>
+          <li>
             <form onSubmit={handleSubmitArticleId} className="" action="">
               <input
                 onChange={handleChange}
@@ -58,13 +60,7 @@ export default function NavBar({ setSingleArticle, setArticles }) {
               <button type="submit">View Article</button>
             </form>
           </li>
-          <li>
-            <OrderToggleRadio setArticles={setArticles} />
-          </li>
-          <li>
-            <TopicsForm topics={topics} />
-            <SortByForm setArticles={setArticles} />
-          </li>
+          <SortArticles setArticles={setArticles} />
         </ul>
       </nav>
     </>

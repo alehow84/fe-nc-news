@@ -12,6 +12,7 @@ export default function TopicalArticles({ articles }) {
   const { topic } = useParams();
 
   useEffect(() => {
+    //change the sortArticles api call to include topic query?
     getArticlesByTopic(topic)
       .then(({ articles }) => {
         setTopicalArticles(articles);
