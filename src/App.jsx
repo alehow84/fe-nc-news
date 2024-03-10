@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useParams } from "react-router-dom";
 import "./CSS/App.css";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
@@ -23,7 +23,6 @@ function App() {
     avatar_url:
       "https://vignette.wikia.nocookie.net/mrmen/images/4/4f/MR_JELLY_4A.jpg/revision/latest?cb=20180104121141",
   });
-
   return (
     <UserContext.Provider value={loggedInUser}>
       <Container className="App-layout">
