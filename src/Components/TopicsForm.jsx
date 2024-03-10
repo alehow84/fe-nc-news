@@ -1,6 +1,6 @@
 import { Navigate, useNavigate } from "react-router-dom";
 
-export default function TopicsForm({ topics }) {
+export default function TopicsForm({ topics, setTopicalArticles }) {
   const navigate = useNavigate();
 
   function handleTopicChange(event) {
@@ -8,6 +8,7 @@ export default function TopicsForm({ topics }) {
   }
 
   function handleResetFilter() {
+    setTopicalArticles([]);
     navigate(`/`);
   }
 

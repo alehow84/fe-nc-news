@@ -52,6 +52,11 @@ export default function ArticlesCard({ articles, topicalArticles }) {
                     </Col>
                     <Col>
                       <Typography variant="body2" color="text.secondary">
+                        Comments: {article.comment_count}
+                      </Typography>
+                    </Col>
+                    <Col>
+                      <Typography variant="body2" color="text.secondary">
                         Votes: {article.votes}
                       </Typography>
                     </Col>

@@ -10,6 +10,17 @@ export const getAllArticles = () => {
   });
 };
 
+export const sortArticles = (orderQuery, sortQuery) => {
+  let path = `/articles/?order=${orderQuery}`;
+  sortQuery
+    ? (path += `&sort_by=${sortQuery}`)
+    : (path += `&sort_by=created_at`);
+
+  return api.get(path).then(({ data }) => {
+    return data;
+  });
+};
+
 export const getSingleArticle = (article_id) => {
   return api.get(`/articles/${article_id}`).then(({ data }) => {
     return data;
@@ -40,17 +51,6 @@ export const getArticlesByTopic = (selectedTopic) => {
     .then(({ data }) => {
       return data;
     });
-};
-
-export const sortArticles = (orderQuery, sortQuery) => {
-  let path = `/articles/?order=${orderQuery}`;
-  sortQuery
-    ? (path += `&sort_by=${sortQuery}`)
-    : (path += `&sort_by=created_at`);
-
-  return api.get(path).then(({ data }) => {
-    return data;
-  });
 };
 
 export const patchVotes = (article_id, newVotes) => {

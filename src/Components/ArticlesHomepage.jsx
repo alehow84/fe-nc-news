@@ -14,8 +14,8 @@ export default function ArticlesHomepage({
 
   useEffect(() => {
     getAllArticles()
-      .then((response) => {
-        setArticles(response.articles);
+      .then(({ articles }) => {
+        setArticles(articles);
         setIsLoading(false);
       })
       .catch(() => {

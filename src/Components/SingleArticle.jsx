@@ -13,11 +13,11 @@ import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 
-export default function SingleArticle({ singleArticle }) {
-  //im not using singleArticle
+export default function SingleArticle() {
   const [article, setArticle] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
+  const [error, setError] = useState("");
   const [showComments, setShowComments] = useState(false);
   const [commentCount, setCommentCount] = useState(null);
   const [hasCommented, setHasCommented] = useState(false);
@@ -27,14 +27,16 @@ export default function SingleArticle({ singleArticle }) {
 
   useEffect(() => {
     getSingleArticle(article_id)
-      .then((response) => {
-        setArticle(response.article);
-        setVoteCount(response.article.votes);
-        setCommentCount(Number(response.article.comment_count));
+      .then(({ article }) => {
+        setArticle(article);
+        setVoteCount(article.votes);
+        setCommentCount(Number(article.comment_count));
         setIsLoading(false);
       })
-      .catch(() => {
+      .catch((error) => {
+        setIsLoading(false);
         setIsError(true);
+        setError(error.response.data);
       });
   }, [voteCount]);
 
@@ -48,10 +50,11 @@ export default function SingleArticle({ singleArticle }) {
       voteCount + votes;
     });
     patchVotes(article_id, newVotes);
+    //update setHasVoted to true?
   }
 
-  if (isLoading) <LoadingComponent />;
-  if (!isError) <ErrorComponent />;
+  if (isLoading) return <LoadingComponent />;
+  if (isError) return <ErrorComponent error={error} />;
 
   return (
     <>
