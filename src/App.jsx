@@ -11,6 +11,7 @@ import NavBar from "./Components/NavBar";
 import Footer from "./Components/Footer";
 import TopicalArticles from "./Components/TopicalArticles";
 import UserContext from "./Context/UserContext";
+import ErrorComponent from "./Components/ErrorComponent";
 
 function App() {
   const [header, setHeader] = useState("Welcome to NC News 💬");
@@ -42,8 +43,9 @@ function App() {
           </Col>
           <Col>
             <Routes>
+              <Route path={"/"} element={<ErrorComponent />} />
               <Route
-                path={"/"}
+                path={"/home"}
                 element={
                   <ArticlesHomepage
                     setSingleArticle={setSingleArticle}

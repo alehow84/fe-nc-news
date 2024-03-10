@@ -25,7 +25,7 @@ export default function NavBar({
       <nav ref={stickyRef}>
         <ul className="nav-items">
           <NavLink linkDestination={"/users"} linkName={"Switch User"} />
-          <NavLink linkDestination={"/"} linkName={"Articles Home"} />
+          <NavLink linkDestination={"/home"} linkName={"Articles Home"} />
           <li>
             <TopicsForm
               topics={topics}
