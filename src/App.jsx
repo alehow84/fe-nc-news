@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useParams } from "react-router-dom";
 import "./CSS/App.css";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
@@ -11,6 +11,7 @@ import NavBar from "./Components/NavBar";
 import Footer from "./Components/Footer";
 import TopicalArticles from "./Components/TopicalArticles";
 import UserContext from "./Context/UserContext";
+import ErrorComponent from "./Components/ErrorComponent";
 
 function App() {
   const [header, setHeader] = useState("Welcome to NC News 💬");
@@ -23,7 +24,6 @@ function App() {
     avatar_url:
       "https://vignette.wikia.nocookie.net/mrmen/images/4/4f/MR_JELLY_4A.jpg/revision/latest?cb=20180104121141",
   });
-
   return (
     <UserContext.Provider value={loggedInUser}>
       <Container className="App-layout">
@@ -43,8 +43,9 @@ function App() {
           </Col>
           <Col>
             <Routes>
+              <Route path={"/"} element={<ErrorComponent />} />
               <Route
-                path={"/"}
+                path={"/home"}
                 element={
                   <ArticlesHomepage
                     setSingleArticle={setSingleArticle}

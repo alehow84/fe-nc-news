@@ -7,7 +7,7 @@ export default function ErrorComponent({ error }) {
         </h2>
         {error ? (
           <p className="error-info">
-            Error: {error.status}, {error.msg}
+            Error: {error.status} {error.msg}
           </p>
         ) : null}
       </div>
