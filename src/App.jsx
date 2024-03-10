@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import "./CSS/App.css";
-import background from "./assets/squiggle_lines_pattern_background.jpg";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -11,14 +10,13 @@ import SingleArticle from "./Components/SingleArticle";
 import NavBar from "./Components/NavBar";
 import Footer from "./Components/Footer";
 import TopicalArticles from "./Components/TopicalArticles";
-
-// import { useContext } from 'react'
 import UserContext from "./Context/UserContext";
 
 function App() {
   const [header, setHeader] = useState("Welcome to NC News 💬");
   const [singleArticle, setSingleArticle] = useState([]);
   const [articles, setArticles] = useState([]);
+  const [topicalArticles, setTopicalArticles] = useState([]);
   const [loggedInUser, setLoggedInUser] = useState({
     username: "jessjelly",
     name: "Jess Jelly",
@@ -27,7 +25,6 @@ function App() {
   });
 
   return (
-    // <div className="App" style={{backgroundImage: `url(${background})`}}>
     <UserContext.Provider value={loggedInUser}>
       <Container className="App-layout">
         <Row>
@@ -37,7 +34,12 @@ function App() {
         </Row>
         <Row>
           <Col xs={3}>
-            <NavBar setSingleArticle={setSingleArticle} />
+            <NavBar
+              setSingleArticle={setSingleArticle}
+              setArticles={setArticles}
+              topicalArticles={topicalArticles}
+              setTopicalArticles={setTopicalArticles}
+            />
           </Col>
           <Col>
             <Routes>
@@ -62,7 +64,13 @@ function App() {
               />
               <Route
                 path={"/articles/topics/:topic"}
-                element={<TopicalArticles articles={articles} />}
+                element={
+                  <TopicalArticles
+                    articles={articles}
+                    topicalArticles={topicalArticles}
+                    setTopicalArticles={setTopicalArticles}
+                  />
+                }
               />
             </Routes>
           </Col>
@@ -74,7 +82,6 @@ function App() {
         </Row>
       </Container>
     </UserContext.Provider>
-    // </div>
   );
 }
 

@@ -5,25 +5,32 @@ import LoadingComponent from "./LoadingComponent";
 import ErrorComponent from "./ErrorComponent";
 import { getArticlesByTopic } from "../Api";
 
-export default function TopicalArticles({ articles }) {
-  const [topicalArticles, setTopicalArticles] = useState([]);
+export default function TopicalArticles({
+  articles,
+  topicalArticles,
+  setTopicalArticles,
+}) {
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
+  const [error, setError] = useState("");
   const { topic } = useParams();
 
   useEffect(() => {
     getArticlesByTopic(topic)
-      .then((response) => {
-        setTopicalArticles(response.articles);
+      .then(({ articles }) => {
+        setTopicalArticles(articles);
         setIsLoading(false);
       })
-      .catch(() => {
+      .catch((error) => {
+        console.log(error.response.data, "<<<error in topical articles");
+        setIsLoading(false);
         setIsError(true);
+        setError(error.response.data);
       });
   }, [topicalArticles]);
 
   if (isLoading) return <LoadingComponent />;
-  if (!Error) return <ErrorComponent />;
+  if (isError) return <ErrorComponent error={error} />;
 
   return (
     <>

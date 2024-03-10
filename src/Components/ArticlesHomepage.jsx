@@ -9,15 +9,13 @@ export default function ArticlesHomepage({
   articles,
   setArticles,
 }) {
-  // const [articles, setArticles] = useState([])
-
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
 
   useEffect(() => {
     getAllArticles()
-      .then((response) => {
-        setArticles(response.articles);
+      .then(({ articles }) => {
+        setArticles(articles);
         setIsLoading(false);
       })
       .catch(() => {
