@@ -28,7 +28,7 @@ function App() {
     <UserContext.Provider value={loggedInUser}>
       <Container className="App-layout">
         <Row>
-          <Col>
+          <Col className="header-col">
             <Header header={header} />
           </Col>
         </Row>
@@ -43,9 +43,8 @@ function App() {
           </Col>
           <Col>
             <Routes>
-              <Route path={"/"} element={<ErrorComponent />} />
               <Route
-                path={"/home"}
+                path={"/"}
                 element={
                   <ArticlesHomepage
                     setSingleArticle={setSingleArticle}
@@ -73,6 +72,7 @@ function App() {
                   />
                 }
               />
+              <Route path={"/error"} element={<ErrorComponent />} />
             </Routes>
           </Col>
         </Row>

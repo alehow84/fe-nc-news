@@ -10,7 +10,7 @@ export default function NavBar({
   topicalArticles,
   setTopicalArticles,
 }) {
-  const stickyRef = useStickyBox({ offsetTop: 20, offsetBottom: 20 });
+  const stickyRef = useStickyBox({ offsetTop: 40, offsetBottom: 20 });
   const [topics, setTopics] = useState([]);
 
   useEffect(() => {
@@ -22,10 +22,10 @@ export default function NavBar({
   //Issue in the NavBar - SortArticles not being re-shown after user clicks ResetFilter on Choose a Topic after first click. Take two clicks
   return (
     <>
-      <nav ref={stickyRef}>
-        <ul className="nav-items">
+      <nav>
+        <ul ref={stickyRef} className="nav-items">
           <NavLink linkDestination={"/users"} linkName={"Switch User"} />
-          <NavLink linkDestination={"/home"} linkName={"Articles Home"} />
+          <NavLink linkDestination={"/"} linkName={"Articles Home"} />
           <li>
             <TopicsForm
               topics={topics}

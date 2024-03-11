@@ -9,7 +9,7 @@ export default function TopicsForm({ topics, setTopicalArticles }) {
 
   function handleResetFilter() {
     setTopicalArticles([]);
-    navigate(`/home`);
+    navigate(`/`);
   }
 
   return (
