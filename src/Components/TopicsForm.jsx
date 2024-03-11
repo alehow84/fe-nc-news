@@ -15,7 +15,7 @@ export default function TopicsForm({ topics, setTopicalArticles }) {
   return (
     <>
       <form onReset={handleResetFilter}>
-        <label>Search Articles by Topic</label>
+        <label className="dropdown-label">Search Articles by Topic</label>
         <select defaultValue={"placeholder"} onChange={handleTopicChange}>
           <option disabled value={"placeholder"}>
             Choose a Topic
@@ -28,7 +28,7 @@ export default function TopicsForm({ topics, setTopicalArticles }) {
             );
           })}
         </select>
-        <input type="reset" value="Reset filter" />
+        <input className="reset-input" type="reset" value="Reset filter" />
       </form>
     </>
   );

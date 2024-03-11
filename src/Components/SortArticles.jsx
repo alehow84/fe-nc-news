@@ -76,7 +76,7 @@ export default function SortArticles({ setArticles }) {
       </li>
       <li>
         <form onReset={handleResetSortFilter}>
-          <label>Sort Articles</label>
+          <label className="dropdown-label">Sort Articles</label>
           <select defaultValue={"placeholder"} onChange={handleSortChange}>
             <option disabled value={"placeholder"}>
               Select a field to sort by
@@ -85,7 +85,7 @@ export default function SortArticles({ setArticles }) {
             <option value={"comment_count"}>Comments</option>
             <option value={"votes"}>Votes</option>
           </select>
-          <input type="reset" value="Reset filter" />
+          <input className="reset-input" type="reset" value="Reset filter" />
         </form>
       </li>
     </>
