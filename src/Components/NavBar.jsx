@@ -19,19 +19,21 @@ export default function NavBar({
     });
   }, [topics]);
 
-  //Issue in the NavBar - SortArticles not being re-shown after user clicks ResetFilter on Choose a Topic after first click. Take two clicks
+  //Issue in the NavBar - SortArticles not being re-shown after user clicks ResetFilter on Choose a Topic after first click. Takes two clicks. Conditional Rendering commented out for now
   return (
     <>
       <nav>
         <ul ref={stickyRef} className="nav-items">
           <NavLink linkDestination={"/users"} linkName={"Switch User"} />
           <NavLink linkDestination={"/"} linkName={"Articles Home"} />
-          {topicalArticles.length === 0 ? (
+          {/* {topicalArticles.length === 0 ? (
             <SortArticles setArticles={setArticles} />
-          ) : null}
+          ) : null} */}
+          <SortArticles setArticles={setArticles} />
           <li>
             <TopicsForm
               topics={topics}
+              topicalArticles={topicalArticles}
               setTopicalArticles={setTopicalArticles}
             />
           </li>

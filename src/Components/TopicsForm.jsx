@@ -1,4 +1,5 @@
 import { Navigate, useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 export default function TopicsForm({ topics, setTopicalArticles }) {
   const navigate = useNavigate();
@@ -8,6 +9,7 @@ export default function TopicsForm({ topics, setTopicalArticles }) {
   }
 
   function handleResetFilter() {
+    //the below changes topicalArticles state to hide SortArticles component. Not used at present as conditional rendering for SortArticles commented out in NavBar
     setTopicalArticles([]);
     navigate(`/`);
   }

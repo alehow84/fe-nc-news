@@ -11,20 +11,13 @@ body {
   min-width: 320px;
   min-height: 100vh;
   background-image: url("../assets/squiggle_lines_pattern_background.jpg");
-  /* background-repeat:  */
-  /* background-size: cover; */
 }
-
-/* .header-col {
-  display: grid;
-} */
 
 .card {
   padding: 2em;
 }
 
 #header {
-  /* align-self: flex-start; */
   background: linear-gradient(
     109.6deg,
     rgb(33, 25, 180) 11.2%,
@@ -62,7 +55,7 @@ footer {
   border-radius: 20px;
   background-color: white;
 }
-/* split colours of styled-box into 2 seperate themes for userpagecard, and comments cards add theme class to each*/
+
 .styled-box {
   max-width: 700px;
   margin: 20px;
@@ -103,13 +96,8 @@ nav {
   left: -15px;
 }
 
-/* .nav-items > ul {
-  padding-left: 10px;
-} */
-
 .nav-items > li {
   margin: 50px 0px;
-  /* padding-right: 10px; */
 }
 
 .comment-form {
@@ -138,10 +126,6 @@ form {
   color: white;
   text-shadow: 2px 2px 5px rgb(11, 11, 11);
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-
-  /* background-color: rgb(244, 158, 20);
-  padding: 8px 0px;
-  border-radius: 3px; */
 }
 .navlink-button {
   text-shadow: 2px 2px 5px rgb(11, 11, 11);

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
-import { orange, blue } from "@mui/material/colors";
+import { orange, yellow } from "@mui/material/colors";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
@@ -36,8 +36,10 @@ export default function SortArticles({ setArticles }) {
           <FormControl>
             <FormLabel
               sx={{
-                color: orange[50],
-                "&.MuiFormLabel-colorPrimary": { color: orange[50] },
+                color: yellow[50],
+                "&.MuiFormLabel-colorPrimary": {
+                  color: yellow[50],
+                },
               }}
               id="Order-articles-radio-buttons-form"
             >
@@ -51,7 +53,7 @@ export default function SortArticles({ setArticles }) {
               onChange={handleRadioChange}
             >
               <FormControlLabel
-                sx={{ color: orange[50] }}
+                sx={{ color: yellow[50] }}
                 value="desc"
                 control={
                   <Radio
@@ -66,7 +68,7 @@ export default function SortArticles({ setArticles }) {
                 label="Descending"
               />
               <FormControlLabel
-                sx={{ color: orange[50] }}
+                sx={{ color: yellow[50] }}
                 value="asc"
                 control={
                   <Radio
