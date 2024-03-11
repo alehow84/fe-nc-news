@@ -26,15 +26,15 @@ export default function NavBar({
         <ul ref={stickyRef} className="nav-items">
           <NavLink linkDestination={"/users"} linkName={"Switch User"} />
           <NavLink linkDestination={"/"} linkName={"Articles Home"} />
+          {topicalArticles.length === 0 ? (
+            <SortArticles setArticles={setArticles} />
+          ) : null}
           <li>
             <TopicsForm
               topics={topics}
               setTopicalArticles={setTopicalArticles}
             />
           </li>
-          {topicalArticles.length === 0 ? (
-            <SortArticles setArticles={setArticles} />
-          ) : null}
         </ul>
       </nav>
     </>
