@@ -11,7 +11,7 @@ It is a News site with a social aspect, similar to Reddit, where users can:
 - Change the order of all articles (ascending or descending)
 - Filter the articles by available article topics
 - View a single article
-- View a list of comments of a single article
+- View a list of comments for a single article
 - Post a comment to an article as the default logged in user
 - Delete comments from the article that have been posted by the logged in user
 - Up or down vote the article
