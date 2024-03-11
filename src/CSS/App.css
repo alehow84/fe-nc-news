@@ -126,7 +126,9 @@ form {
   color: white;
   text-shadow: 2px 2px 5px rgb(11, 11, 11);
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+  cursor: pointer;
 }
+
 .navlink-button {
   text-shadow: 2px 2px 5px rgb(11, 11, 11);
   box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.2);
@@ -134,6 +136,7 @@ form {
 select {
   background-color: white;
   color: black;
+  cursor: pointer;
 }
 
 .dropdown-label {
@@ -144,4 +147,5 @@ select {
   background-color: purple;
   padding: 5px;
   border-radius: 5px;
+  cursor: pointer;
 }

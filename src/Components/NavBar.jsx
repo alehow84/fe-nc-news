@@ -24,7 +24,7 @@ export default function NavBar({
     <>
       <nav>
         <ul ref={stickyRef} className="nav-items">
-          <NavLink linkDestination={"/users"} linkName={"Switch User"} />
+          {/* <NavLink linkDestination={"/users"} linkName={"Switch User"} /> */}
           <NavLink linkDestination={"/"} linkName={"Articles Home"} />
           {/* {topicalArticles.length === 0 ? (
             <SortArticles setArticles={setArticles} />
