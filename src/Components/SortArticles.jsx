@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
-import { orange } from "@mui/material/colors";
+import { orange, yellow } from "@mui/material/colors";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
@@ -32,51 +32,63 @@ export default function SortArticles({ setArticles }) {
   return (
     <>
       <li>
-        <FormControl>
-          <FormLabel id="Order-articles-radio-buttons-form">
-            Order articles
-          </FormLabel>
-          <RadioGroup
-            aria-labelledby="Order-articles-radio-buttons-form"
-            defaultValue="desc"
-            name="radio-buttons-group"
-            value={value}
-            onChange={handleRadioChange}
-          >
-            <FormControlLabel
-              value="desc"
-              control={
-                <Radio
-                  sx={{
-                    color: orange[800],
-                    "&.Mui-checked": {
-                      color: orange[600],
-                    },
-                  }}
-                />
-              }
-              label="Descending"
-            />
-            <FormControlLabel
-              value="asc"
-              control={
-                <Radio
-                  sx={{
-                    color: orange[800],
-                    "&.Mui-checked": {
-                      color: orange[600],
-                    },
-                  }}
-                />
-              }
-              label="Ascending"
-            />
-          </RadioGroup>
-        </FormControl>
+        <div className="radio-container">
+          <FormControl>
+            <FormLabel
+              sx={{
+                color: yellow[50],
+                "&.MuiFormLabel-colorPrimary": {
+                  color: yellow[50],
+                },
+              }}
+              id="Order-articles-radio-buttons-form"
+            >
+              Order articles
+            </FormLabel>
+            <RadioGroup
+              aria-labelledby="Order-articles-radio-buttons-form"
+              defaultValue="desc"
+              name="radio-buttons-group"
+              value={value}
+              onChange={handleRadioChange}
+            >
+              <FormControlLabel
+                sx={{ color: yellow[50] }}
+                value="desc"
+                control={
+                  <Radio
+                    sx={{
+                      color: orange[800],
+                      "&.Mui-checked": {
+                        color: orange[600],
+                      },
+                    }}
+                  />
+                }
+                label="Descending"
+              />
+              <FormControlLabel
+                sx={{ color: yellow[50] }}
+                value="asc"
+                control={
+                  <Radio
+                    sx={{
+                      color: orange[800],
+                      "&.Mui-checked": {
+                        color: orange[600],
+                      },
+                    }}
+                  />
+                }
+                label="Ascending"
+              />
+            </RadioGroup>
+          </FormControl>
+        </div>
       </li>
       <li>
         <form onReset={handleResetSortFilter}>
-          <label>Sort Articles</label>
+          <label className="dropdown-label">Sort Articles</label>
           <select defaultValue={"placeholder"} onChange={handleSortChange}>
             <option disabled value={"placeholder"}>
               Select a field to sort by
@@ -85,7 +97,7 @@ export default function SortArticles({ setArticles }) {
             <option value={"comment_count"}>Comments</option>
             <option value={"votes"}>Votes</option>
           </select>
-          <input type="reset" value="Reset filter" />
+          <input className="reset-input" type="reset" value="Reset filter" />
         </form>
       </li>
     </>

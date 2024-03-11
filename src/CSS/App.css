@@ -11,8 +11,6 @@ body {
   min-width: 320px;
   min-height: 100vh;
   background-image: url("../assets/squiggle_lines_pattern_background.jpg");
-  /* background-repeat:  */
-  /* background-size: cover; */
 }
 
 .card {
@@ -28,7 +26,7 @@ body {
   );
   color: white;
   padding: 50px;
-  border-radius: 15px;
+  border-radius: 10px;
 }
 .header-text {
   text-shadow: 2px 2px 5px rgb(11, 11, 11);
@@ -41,6 +39,7 @@ body {
 
 ul {
   list-style: none;
+  padding-left: 0%;
 }
 
 .card-img {
@@ -56,7 +55,7 @@ footer {
   border-radius: 20px;
   background-color: white;
 }
-/* split colours of styled-box into 2 seperate themes for userpagecard, and comments cards add theme class to each*/
+
 .styled-box {
   max-width: 700px;
   margin: 20px;
@@ -90,11 +89,13 @@ nav {
     rgb(72, 177, 234) 100.2%
   );
   border-radius: 4px;
+  height: 100%;
 }
 .nav-items {
   position: relative;
   left: -15px;
 }
+
 .nav-items > li {
   margin: 50px 0px;
 }
@@ -119,4 +120,32 @@ nav {
 
 .error-info {
   font-size: 2rem;
+}
+
+form {
+  color: white;
+  text-shadow: 2px 2px 5px rgb(11, 11, 11);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  cursor: pointer;
+}
+
+.navlink-button {
+  text-shadow: 2px 2px 5px rgb(11, 11, 11);
+  box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.2);
+}
+select {
+  background-color: white;
+  color: black;
+  cursor: pointer;
+}
+
+.dropdown-label {
+  font-weight: 500;
+}
+
+.reset-input {
+  background-color: purple;
+  padding: 5px;
+  border-radius: 5px;
+  cursor: pointer;
 }
