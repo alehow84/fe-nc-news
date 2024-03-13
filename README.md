@@ -25,7 +25,7 @@ To complete this project I:
 
 ## *Getting Started*
 
-1. Clone this repo to your local machine
+1. First *Fork* this repo and then *Clone* it to your local machine
 
 ```
 git clone https://github.com/alehow84/nc-news.git
